@@ -25,12 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class MosaicController {
 	
-	  public static void setColorToGraphics(Graphics2D graph, int width, int height) {
-	    	Color oldColor = graph.getColor();
-	 	    graph.setPaint(Color.BLACK);
-	 	    graph.fillRect(0, 0, width, height);
-	 	    graph.setColor(oldColor);
-	    }
+	
 	
 	@GetMapping(value = "/mozaika", produces = MediaType.IMAGE_JPEG_VALUE)
 	public @ResponseBody byte[] getJoinedImage
@@ -46,12 +41,8 @@ public class MosaicController {
 			BufferedImage img = ImageIO.read(new URL(url));
 			imgList.add(img);
 		}
-					
-//		String url1 = "https://upload.wikimedia.org/wikipedia/commons/a/a7/Toddy_Dog.jpg";
-//		String url2 = "https://vignette.wikia.nocookie.net/uncyclopedia/images/b/be/Cat.JPG";
-//		String url3 = "http://www.photo-dictionary.com/photofiles/list/4866/6405river_otter.jpg";
-//	
 		
+		//checks if random is true or false 
 		if (random == 1) {
 		Collections.shuffle(imgList);
 		}
@@ -263,7 +254,8 @@ public class MosaicController {
     	    return newImage;
     	  }
     
-   public BufferedImage resizeImage(BufferedImage bImage, int width, int height) {
+    //to resize the BufferedImage
+    public BufferedImage resizeImage(BufferedImage bImage, int width, int height) {
 	   
 	   BufferedImage resizedImage = new BufferedImage(width, height,  BufferedImage.TYPE_INT_BGR);
 	   Graphics2D g = resizedImage.createGraphics();
@@ -272,5 +264,13 @@ public class MosaicController {
 	   
 	   return resizedImage;
    }
+    
+    //sets colors to Graphics2D
+    public static void setColorToGraphics(Graphics2D graph, int width, int height) {
+    	Color oldColor = graph.getColor();
+ 	    graph.setPaint(Color.BLACK);
+ 	    graph.fillRect(0, 0, width, height);
+ 	    graph.setColor(oldColor);
+    }
 
 }
