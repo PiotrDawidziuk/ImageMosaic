@@ -122,7 +122,7 @@ public class MosaicController {
         	    g2.drawImage(img1, null, 0, 0);
         	    g2.drawImage(img2, null, img1.getWidth() + offset, 0);
         	    g2.drawImage(img3, null, 0, Collections.max(Arrays.asList(img1.getHeight(),img2.getHeight())) + offset);
-        	    g2.drawImage(img4, null, img1.getWidth() + offset, Collections.max(Arrays.asList(img1.getHeight(),img2.getHeight())) + offset);
+        	    g2.drawImage(img4, null, img3.getWidth() + offset, Collections.max(Arrays.asList(img1.getHeight(),img2.getHeight())) + offset);
         	    g2.dispose();
     	    	
     	    } else if (img.size()==5) {
