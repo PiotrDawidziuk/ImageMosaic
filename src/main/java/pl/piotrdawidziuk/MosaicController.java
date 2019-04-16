@@ -32,7 +32,7 @@ public class MosaicController {
 	 	    graph.setColor(oldColor);
 	    }
 	
-	@GetMapping(value = "/get-joined", produces = MediaType.IMAGE_JPEG_VALUE)
+	@GetMapping(value = "/mozaika", produces = MediaType.IMAGE_JPEG_VALUE)
 	public @ResponseBody byte[] getJoinedImage
 	(@RequestParam(name = "losowo", defaultValue = "0") int random,
 			@RequestParam(name = "rozdzielczosc", defaultValue = "2048x2048") String resString,
